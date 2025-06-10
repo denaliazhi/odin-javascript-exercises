@@ -1,18 +1,15 @@
 const fibonacci = function(n) {
+    num = +n;
+    if (num < 0) return "OOPS";
 
-    if (+n < 0) return "OOPS";
-    if (+n == 0) return 0;
+    // Array with 0th and 1st fibonacci values
+    const sequence = [0, 1];
 
-    let a = 0;
-    let b = 1;
-    let curr = a + b;
-
-    for (let i = 2; i < +n; i++) {
-        a = b;
-        b = curr;
-        curr = a + b;
+    // Loop starts from 2nd value onward
+    for (let i = 2; i <= num; i++) {
+        sequence[i] = sequence[i - 2] + sequence[i - 1];
     }
-    return curr;
+    return sequence[num];
 };
 
 // Do not edit below this line
