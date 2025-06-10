@@ -1,18 +1,18 @@
 const fibonacci = function(n) {
+
+    if (+n < 0) return "OOPS";
+    if (+n == 0) return 0;
+
     let a = 0;
     let b = 1;
-    let c = a + b;
-
-    if (+n < 0) {
-        return "OOPS"
-    }
+    let curr = a + b;
 
     for (let i = 2; i < +n; i++) {
         a = b;
-        b = c;
-        c = a + b;
+        b = curr;
+        curr = a + b;
     }
-    return +n == 0 ? a : c;
+    return curr;
 };
 
 // Do not edit below this line
